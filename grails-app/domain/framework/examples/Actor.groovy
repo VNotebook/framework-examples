@@ -1,5 +1,8 @@
 package framework.examples
 
+import javax.annotation.Resource
+
+@Resource()
 class Actor {
     String firstname
     String lastname

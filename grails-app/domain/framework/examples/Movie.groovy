@@ -1,5 +1,8 @@
 package framework.examples
 
+import javax.annotation.Resource
+
+@Resource()
 class Movie {
     String title
     Genre genre
