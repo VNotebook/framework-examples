@@ -1,0 +1,49 @@
+<h2>Películas</h2>
+
+<div class="form-group">
+<input type="text" ng-model="search" placeholder="Buscar por título" class="form-control">
+</div>
+
+<div>
+	<div ng-show="movies">
+		<div class="panel panel-default" ng-repeat="movie in (movies | filter:{title: search} | orderBy:'+title') track by movie.id ">
+		  <div class="panel-body">
+		    <h3>{{movie.title}} 
+		    	<a ng-href="#/editar/{{movie.id}}" class="btn btn-default">
+		    		<span class="glyphicon glyphicon-pencil"></span>
+		    	</a> 
+		    	<button type="button" ng-click="deleteMovie(movie.id)" class="btn btn-danger">
+		    		<span class="glyphicon glyphicon-trash"></span>
+		    	</button>
+		    </h3>
+		    
+		    <div class="col-xs-4">
+		    	<img ng-src="{{movie.imageUrl}}" class="img-responsive img-rounded">
+		    </div>
+		    <div class="col-xs-8">
+		    	<dl class="dl-horizontal">
+				  <dt>Descripción</dt>
+				  <dd>{{movie.description}}</dd>
+				  <dt>Géneros</dt>
+				  <dd><span ng-repeat="genre in movie.genres track by $index"><span class="label label-default">{{genre}}</span> </span></dd>
+				  <dt>Fecha</dt>
+				  <dd>{{movie.date}}</dd>
+				  <dt>Director</dt>
+				  <dd>{{movie.director}}</dd>
+				  <dt>Actores</dt>
+				  <dd>
+				  	<ul>
+				  		<li ng-repeat="actor in movie.actors track by $index">{{actor}}</li>
+				  	</ul>
+				  </dd>
+				</dl>
+		    </div>
+		  </div>
+		</div>
+
+		<a href="#/crear" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Añadir una nueva película</a>
+	</div>
+	<div ng-show="!movies">
+		Ups, parece que no hay películas.
+	</div>
+</div>
