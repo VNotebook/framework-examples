@@ -5,8 +5,8 @@
 </div>
 
 <div>
-	<div ng-show="movies">
-		<div class="panel panel-default" ng-repeat="movie in (movies | filter:{title: search} | orderBy:'+title') track by movie.id ">
+	<div ng-show="movies.length > 0">
+		<div class="panel panel-default" ng-repeat="movie in (movies | filter:{title: search} | orderBy:'+title') track by movie.id">
 		  <div class="panel-body">
 		    <h3>{{movie.title}} 
 		    	<a ng-href="#/editar/{{movie.id}}" class="btn btn-default">
@@ -41,9 +41,11 @@
 		  </div>
 		</div>
 
-		<a href="#/crear" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Añadir una nueva película</a>
+		
 	</div>
-	<div ng-show="!movies">
+	<div ng-show="movies.length == 0">
 		Ups, parece que no hay películas.
 	</div>
+
+	<a href="#/crear" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Añadir una nueva película</a>
 </div>
