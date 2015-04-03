@@ -1,0 +1,20 @@
+<div data-ng-controller="NewGenreCtrl">
+    <form class="form-horizontal">
+        <h1 class="page-header">Nuevo Género</h1>
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="name">Nombre</label>
+                <div class="controls">
+                    <input id="name" type="text" class="input-block-level"
+                           required="true" data-ng-model="genre.name"></input>
+                </div>
+            </div>
+        </fieldset>
+        <p>
+            <div class="form-actions">
+                <button class="btn btn-primary" data-ng-click="saveGenre()">Añadir
+                    Género</button>
+            </div>
+        </p>
+    </form>
+</div>

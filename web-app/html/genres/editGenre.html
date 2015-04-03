@@ -1,0 +1,19 @@
+<div ng-controller="EditGenreCtrl">
+    <form class="form-horizontal">
+        <h1 class="page-header">Editar Género ({{genre.name}})</h1>
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="title">Nombre</label>
+                <div class="controls">
+                    <input id="title" type="text" class="input-block-level"
+                           required="true" ng-model="genre.name"></input>
+                </div>
+            </div>
+        </fieldset>
+        <p>
+            <div class="form-actions">
+                <button ng-click="updateGenre()" class="btn btn-primary">Actualizar Género</button>
+            </div>
+        </p>
+    </form>
+</div>

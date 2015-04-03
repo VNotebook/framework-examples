@@ -1,0 +1,27 @@
+<div data-ng-controller="GenreListCtrl">
+    <h1 class="page-header">Lista de Géneros</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombres</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="genre in genres">
+            <td>{{genre.name}}</td>
+            <td><button data-ng-click="editGenre($index)" type="button" class="btn btn-default"><span
+                    class="glyphicon glyphicon-pencil"></span>
+            </button>
+                <button data-ng-click="delGenre($index)" type="button" class="btn btn-default"><span
+                        class="glyphicon glyphicon-pencil"></span></button></td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <button type="button" class="btn btn-success"
+                data-ng-click="addGenre()">
+            <b class="icon-plus-sign"></b>Añadir Género
+        </button>
+    </p>
+</div>
