@@ -1,26 +1,21 @@
 package framework.examples
 
-import javax.annotation.Resource
+import grails.rest.*
 
-@Resource()
+@Resource(uri="/peliculas")
 class Movie {
-    String title
-    Genre genre
-    String description
-    Date launchDate
-    String director
 
-    static hasMany = [actors: Actor]
+    String title
+    String description
+    String director
+    Date launchDate
+
+    static hasMany = [actors: Actor, genres: Genre]
 
     static constraints = {
-        title unique: true, blank: false
-        genre blank: false
-        description blank: false
+        title blank: false
         launchDate blank: false
+        description blank: false
         director blank: false
-    }
-
-    String toString() {
-        return title
     }
 }

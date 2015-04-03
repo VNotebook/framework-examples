@@ -1,8 +1,8 @@
 package framework.examples
 
-import javax.annotation.Resource
+import grails.rest.*
 
-@Resource()
+@Resource(uri="/actores")
 class Actor {
     String firstname
     String lastname
@@ -14,7 +14,7 @@ class Actor {
     static constraints = {
         firstname blank: false
         lastname blank: false
-        age range: 1..125, nullable: true
+        age nullable: true
     }
 
     String toString() {

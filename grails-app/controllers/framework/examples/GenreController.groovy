@@ -1,21 +1,19 @@
 package framework.examples
 
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class GenreController {
-
-    static scaffold = true
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Transactional(readOnly = true)
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Genre.list(params), model: [genreInstanceCount: Genre.count()]
     }
 
+    @Transactional(readOnly = true)
     def show(Genre genreInstance) {
         respond genreInstance
     }
@@ -24,7 +22,7 @@ class GenreController {
         respond new Genre(params)
     }
 
-    @Transactional
+    @Transactional(readOnly = false)
     def save(Genre genreInstance) {
         if (genreInstance == null) {
             notFound()
@@ -32,7 +30,7 @@ class GenreController {
         }
 
         if (genreInstance.hasErrors()) {
-            respond genreInstance.errors, view: 'create'
+            respond genreInstance.errors, view: 'create.html'
             return
         }
 
@@ -51,7 +49,7 @@ class GenreController {
         respond genreInstance
     }
 
-    @Transactional
+    @Transactional(readOnly = false)
     def update(Genre genreInstance) {
         if (genreInstance == null) {
             notFound()
@@ -74,7 +72,7 @@ class GenreController {
         }
     }
 
-    @Transactional
+    @Transactional(readOnly = false)
     def delete(Genre genreInstance) {
 
         if (genreInstance == null) {

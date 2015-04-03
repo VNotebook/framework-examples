@@ -10,7 +10,7 @@ class BootStrap {
         def alberActor = new Actor(firstname: "Alber", lastname: "Jas", age: 25).save(failOnError: true)
         def alamActor = new Actor(firstname: "Alam", lastname: "Brito", age: 30).save(failOnError: true)
 
-        def tamalMovie = new Movie(title: "Perdidos en un tamal", description: "asdfjasdflasdf", genre: terrorGenre, launchDate: new Date(), director: "Jefferson Hernández")
+        def tamalMovie = new Movie(title: "Perdidos en un tamal", description: "asdfjasdflasdf", genres: [terrorGenre], launchDate: new Date(), director: "Jefferson Hernández")
         tamalMovie.addToActors(alberActor)
         tamalMovie.save(failOnError: true)
     }

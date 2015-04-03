@@ -1,8 +1,5 @@
 package framework.examples
 
-import javax.annotation.Resource
-
-@Resource()
 class Genre {
 
     String name
