@@ -2,6 +2,7 @@ class UrlMappings {
 
 	static mappings = {
         "/generos"(resources: "genre")
+        "/actores"(resources: "actor")
 
         /*"/$controller/$action?/$id?(.$format)?"{
             constraints {

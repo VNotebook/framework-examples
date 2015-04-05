@@ -4,16 +4,17 @@ package framework.examples
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class ActorController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Transactional(readOnly = true)
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Actor.list(params), model: [actorInstanceCount: Actor.count()]
     }
 
+    @Transactional(readOnly = true)
     def show(Actor actorInstance) {
         respond actorInstance
     }
@@ -22,7 +23,7 @@ class ActorController {
         respond new Actor(params)
     }
 
-    @Transactional
+    @Transactional(readOnly = false)
     def save(Actor actorInstance) {
         if (actorInstance == null) {
             notFound()
@@ -49,7 +50,7 @@ class ActorController {
         respond actorInstance
     }
 
-    @Transactional
+    @Transactional(readOnly = false)
     def update(Actor actorInstance) {
         if (actorInstance == null) {
             notFound()
@@ -72,7 +73,7 @@ class ActorController {
         }
     }
 
-    @Transactional
+    @Transactional(readOnly = false)
     def delete(Actor actorInstance) {
 
         if (actorInstance == null) {
