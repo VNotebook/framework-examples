@@ -1,0 +1,30 @@
+<div data-ng-controller="ActorListCtrl">
+    <h1 class="page-header">Lista de Actores</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="actor in actors">
+            <td>{{actor.firstname}}</td>
+            <td>{{actor.lastname}}</td>
+            <td ng-show="actor.age != 0">{{actor.age}}</td>
+            <td><button data-ng-click="editActor($index)" type="button" class="btn btn-default"><span
+                    class="glyphicon glyphicon-pencil"></span>
+            </button>
+                <button data-ng-click="delActor($index)" type="button" class="btn btn-default"><span
+                        class="glyphicon glyphicon-pencil"></span></button></td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <button type="button" class="btn btn-success"
+                data-ng-click="addActor()">
+            <b class="icon-plus-sign"></b>Añadir Actor
+        </button>
+    </p>
+</div>

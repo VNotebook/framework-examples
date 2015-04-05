@@ -1,0 +1,29 @@
+<div ng-controller="EditActorCtrl">
+    <form class="form-horizontal">
+        <h1 class="page-header">Editar Actor ({{actor.firstname}})</h1>
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="firstname">Nombre</label>
+                <div class="controls">
+                    <input id="firstname" type="text" class="input-block-level"
+                           required="true" ng-model="actor.firstname"></input>
+                </div>
+                <label class="control-label" for="lastname">Apellido</label>
+                <div class="controls">
+                    <input id="lastname" type="text" class="input-block-level"
+                           required="true" ng-model="actor.lastname"></input>
+                </div>
+                <label class="control-label" for="age">Edad</label>
+                <div class="controls">
+                    <input id="age" type="text" class="input-block-level"
+                           required="false" ng-model="actor.age"></input>
+                </div>
+            </div>
+        </fieldset>
+        <p>
+            <div class="form-actions">
+                <button ng-click="updateActor()" class="btn btn-primary">Actualizar Actor</button>
+            </div>
+        </p>
+    </form>
+</div>
